@@ -6,8 +6,8 @@ import calendar
 import datetime
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectButton import DirectButton
-from direct.gui.DirectLabel import DirectLabel
+from BetterDirectGui.DirectGui.DirectButton import DirectButton
+from BetterDirectGui.DirectGui.DirectLabel import DirectLabel
 from . import DirectGuiHelper as DGH
 from .DirectGridSizer import DirectGridSizer
 from .DirectSpinBox import DirectSpinBox
@@ -139,6 +139,9 @@ class DirectDatePicker(DirectGridSizer):
         self.monthPicker.set(self['month']-1)
 
         self.refreshPicker()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectDatePicker)
 
     def createDateButton(self, day, enabled=True):
         return self.createcomponent(

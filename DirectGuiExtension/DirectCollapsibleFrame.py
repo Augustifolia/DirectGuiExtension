@@ -4,8 +4,8 @@ __all__ = ['DirectCollapsibleFrame']
 
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
-from direct.gui.DirectButton import DirectButton
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectButton import DirectButton
 from . import DirectGuiHelper as DGH
 
 
@@ -58,6 +58,9 @@ class DirectCollapsibleFrame(DirectFrame):
 
         # Make sure we are in the correct state
         self.setCollapsed()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectCollapsibleFrame)
 
     def updateFrameSize(self):
         left = DGH.getRealLeft(self) / self.getScale().x

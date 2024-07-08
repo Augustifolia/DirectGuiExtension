@@ -10,9 +10,9 @@ from uuid import uuid4
 from panda3d.core import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
-from direct.gui.DirectButton import DirectButton
-from direct.gui.DirectRadioButton import DirectRadioButton
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectButton import DirectButton
+from BetterDirectGui.DirectGui.DirectRadioButton import DirectRadioButton
 from . import DirectGuiHelper as DGH
 
 class DirectTabbedFrame(DirectFrame):
@@ -90,6 +90,9 @@ class DirectTabbedFrame(DirectFrame):
         self.current_content = None
         self.current_tab = None
         self.start_idx = 0
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectTabbedFrame)
 
     def __tabHeight(self):
         if not hasattr(self, "tab_list"):  # We are here too early

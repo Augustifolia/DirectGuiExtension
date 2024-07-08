@@ -5,8 +5,8 @@ __all__ = ['DirectAutoSizer']
 import inspect
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
-from direct.gui.DirectGuiBase import DirectGuiWidget
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGuiBase import DirectGuiWidget
 from . import DirectGuiHelper as DGH
 from direct.showbase import ShowBaseGlobal
 
@@ -45,6 +45,9 @@ class DirectAutoSizer(DirectFrame):
         self.skipInitRefresh = False
         # initialize once at the end
         self.refresh()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectAutoSizer)
 
     def setChild(self, child):
         if self.child is not None:

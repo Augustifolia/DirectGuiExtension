@@ -5,8 +5,8 @@ __all__ = ['DirectDiagram']
 import math
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
-from direct.gui.DirectLabel import DirectLabel
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectLabel import DirectLabel
 from . import DirectGuiHelper as DGH
 from direct.directtools.DirectGeometry import LineNodePath
 
@@ -50,6 +50,9 @@ class DirectDiagram(DirectFrame):
         self.initialiseoptions(DirectDiagram)
 
         self.refresh()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectDiagram)
 
     def __pad(self):
         self.resetFrameSize()

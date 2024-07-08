@@ -6,7 +6,7 @@ __all__ = ['DirectTooltip']
 import sys
 
 from panda3d.core import TextNode
-from direct.gui.DirectGui import DirectLabel
+from BetterDirectGui.DirectGui.DirectLabel import DirectLabel
 
 class DirectTooltip(DirectLabel):
     def __init__(self, parent = None, **kw):
@@ -50,6 +50,9 @@ class DirectTooltip(DirectLabel):
         self.initialiseoptions(DirectTooltip)
 
         self.hide()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectTooltip)
 
     def show(self, text=None, args=None):
         if text is not None:

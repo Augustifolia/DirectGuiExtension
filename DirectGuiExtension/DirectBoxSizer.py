@@ -4,7 +4,7 @@ __all__ = ['DirectBoxSizer']
 
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
 from . import DirectGuiHelper as DGH
 
 
@@ -63,6 +63,9 @@ class DirectBoxSizer(DirectFrame):
         self.skipInitRefresh = False
         # initialize once at the end
         self.refresh()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectBoxSizer)
 
     def addItem(self, element, **kw):
         """

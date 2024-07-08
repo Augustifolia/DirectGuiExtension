@@ -6,9 +6,9 @@ import os
 
 from panda3d.core import *
 
-from direct.gui.DirectCheckBox import *
-from direct.gui.DirectLabel import *
-from direct.gui.DirectFrame import *
+from BetterDirectGui.DirectGui.DirectCheckBox import *
+from BetterDirectGui.DirectGui.DirectLabel import *
+from BetterDirectGui.DirectGui.DirectFrame import *
 from .DirectBoxSizer import DirectBoxSizer
 from . import DirectGuiHelper as DGH
 from direct.gui import DirectGuiGlobals as DGG
@@ -41,6 +41,9 @@ class DirectTreeView(DirectBoxSizer):
         self.initialiseoptions(DirectTreeView)
 
         self.refreshTree()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectTreeView)
 
     def refreshTree(self):
         for item in self["items"]:

@@ -4,7 +4,7 @@ __all__ = ['DirectGridSizer']
 
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
 from . import DirectGuiHelper as DGH
 
 
@@ -51,6 +51,9 @@ class DirectGridSizer(DirectFrame):
         self.skipInitRefresh = False
         # initialize once at the end
         self.refresh()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectGridSizer)
 
     def addItem(self, element, row, column, widthInColumns=1, heightInRows=1):
         """

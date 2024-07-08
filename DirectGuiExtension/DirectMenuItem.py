@@ -5,9 +5,9 @@ __all__ = ['DirectMenuItem', 'DirectMenuItemEntry', 'DirectMenuItemSubMenu',
 
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectButton import *
-from direct.gui.DirectLabel import *
-from direct.gui.DirectFrame import *
+from BetterDirectGui.DirectGui.DirectButton import *
+from BetterDirectGui.DirectGui.DirectLabel import *
+from BetterDirectGui.DirectGui.DirectFrame import *
 from .DirectBoxSizer import DirectBoxSizer
 from . import DirectGuiHelper as DGH
 
@@ -88,6 +88,9 @@ class DirectMenuItem(DirectButton):
         self.initialiseoptions(DirectMenuItem)
         # Need to call this since we explicitly set frame size
         self.resetFrameSize()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectMenuItem)
 
     def setItems(self):
         """

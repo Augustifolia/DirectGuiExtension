@@ -4,9 +4,9 @@ __all__ = ['DirectMenuBar']
 
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectButton import *
-from direct.gui.DirectLabel import *
-from direct.gui.DirectFrame import *
+from BetterDirectGui.DirectGui.DirectButton import *
+from BetterDirectGui.DirectGui.DirectLabel import *
+from BetterDirectGui.DirectGui.DirectFrame import *
 from .DirectBoxSizer import DirectBoxSizer
 from .DirectAutoSizer import DirectAutoSizer
 from . import DirectGuiHelper as DGH
@@ -29,6 +29,9 @@ class DirectMenuBar(DirectBoxSizer):
 
         if len(self["menuItems"]) > 0:
             self.setItems()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectMenuBar)
 
     def setItems(self):
         self.removeAllItems()

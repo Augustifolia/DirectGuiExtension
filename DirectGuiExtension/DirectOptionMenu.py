@@ -11,9 +11,9 @@ DGG.LEFT = "left"
 DGG.RIGHT = "right"
 DGG.ABOVE = "above"
 DGG.BELOW = "below"
-from direct.gui.DirectButton import *
-from direct.gui.DirectLabel import *
-from direct.gui.DirectFrame import *
+from BetterDirectGui.DirectGui.DirectButton import *
+from BetterDirectGui.DirectGui.DirectLabel import *
+from BetterDirectGui.DirectGui.DirectFrame import *
 
 class DirectOptionMenu(DirectButton):
     """
@@ -101,6 +101,9 @@ class DirectOptionMenu(DirectButton):
         self.initialiseoptions(DirectOptionMenu)
         # Need to call this since we explicitly set frame size
         self.resetFrameSize()
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectOptionMenu)
 
     def setItems(self):
         """

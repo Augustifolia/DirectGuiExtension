@@ -7,9 +7,9 @@ __all__ = ['DirectScrolledWindowFrame']
 
 from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectFrame import DirectFrame
-from direct.gui.DirectButton import DirectButton
-from direct.gui.DirectScrolledFrame import DirectScrolledFrame
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectButton import DirectButton
+from BetterDirectGui.DirectGui.DirectScrolledFrame import DirectScrolledFrame
 
 class DirectScrolledWindowFrame(DirectScrolledFrame):
     """
@@ -70,6 +70,9 @@ class DirectScrolledWindowFrame(DirectScrolledFrame):
 
         self.dragFrame.setPos(0, 0, self.bounds[3])
         self.dragFrame["frameSize"] = (self.bounds[0], self.bounds[1], 0, self['dragAreaHeight'])
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectScrolledWindowFrame)
 
     def dragStart(self, event):
         """

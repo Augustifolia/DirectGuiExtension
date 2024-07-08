@@ -74,9 +74,9 @@ from panda3d.core import *
 from direct.gui import DirectGuiGlobals as DGG
 from direct.directnotify import DirectNotifyGlobal
 from direct.task.Task import Task
-from direct.gui.DirectFrame import *
-from direct.gui.DirectEntry import *
-from direct.gui.DirectButton import *
+from BetterDirectGui.DirectGui.DirectFrame import *
+from BetterDirectGui.DirectGui.DirectEntry import *
+from BetterDirectGui.DirectGui.DirectButton import *
 
 from direct.showbase.MessengerGlobal import messenger
 from direct.task.TaskManagerGlobal import taskMgr
@@ -183,6 +183,9 @@ class DirectSpinBox(DirectFrame):
             self.decButton.setPos(self['decButton_pos'])
         if self['valueEntry_pos'] is not None:
             self.valueEntry.setPos(self['valueEntry_pos'])
+
+        # Apply the theme to self
+        self.add_theming_options(kw, parent, DirectSpinBox)
 
     def __buttonOrientation(self):
         self.incButton["text"] = '5' if self['buttonOrientation'] == DGG.VERTICAL else '4'

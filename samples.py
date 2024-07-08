@@ -2,10 +2,10 @@ import random
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import TextNode, loadPrcFileData
 from direct.gui import DirectGuiGlobals as DGG
-from direct.gui.DirectButton import DirectButton
-from direct.gui.DirectFrame import DirectFrame
-from direct.gui.DirectLabel import DirectLabel
-from direct.gui.DirectEntry import DirectEntry
+from BetterDirectGui.DirectGui.DirectButton import DirectButton
+from BetterDirectGui.DirectGui.DirectFrame import DirectFrame
+from BetterDirectGui.DirectGui.DirectLabel import DirectLabel
+from BetterDirectGui.DirectGui.DirectEntry import DirectEntry
 from DirectGuiExtension.DirectBoxSizer import DirectBoxSizer
 from DirectGuiExtension.DirectGridSizer import DirectGridSizer
 from DirectGuiExtension.DirectScrolledWindowFrame import DirectScrolledWindowFrame
@@ -20,6 +20,8 @@ from DirectGuiExtension.DirectSplitFrame import DirectSplitFrame
 from DirectGuiExtension import DirectGuiHelper as DGH
 
 from DirectFolderBrowser.DirectFolderBrowser import DirectFolderBrowser
+import BetterDirectGui
+from BetterDirectGui.GuiTools import Themes
 
 loadPrcFileData(
     "",
@@ -31,6 +33,7 @@ loadPrcFileData(
 
 app = ShowBase()
 
+BetterDirectGui.init()
 
 # MAIN LAYOUT
 mainBox = DirectBoxSizer(orientation=DGG.VERTICAL, autoUpdateFrameSize=False)
@@ -92,7 +95,7 @@ mainBox.addItem(splitterAutoSizer)
 
 
 # GRID SIZER
-gridSizer = DirectGridSizer(numRows=4, numColumns=5, itemMargin=[0.01, 0.01, 0.01, 0.01])
+gridSizer = DirectGridSizer(numRows=4, numColumns=5, itemMargin=[0.01, 0.01, 0.01, 0.01], scale=0.9)
 
 def createButton(txt, right=0.1):
     btn = DirectButton(
@@ -188,6 +191,6 @@ def updateTask(task):
 
 base.taskMgr.doMethodLater(0.25, updateTask, "updateDiagram")
 
-
+base.gui_controller.set_theme(Themes.default_theme)
 
 app.run()
